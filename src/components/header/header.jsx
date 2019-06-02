@@ -28,8 +28,6 @@ class HeaderComponent extends Component {
           window.removeEventListener("resize", this.updateDimensions.bind(this));
         }
     
-
-    
         render() {
             return (
               <div className="header-wrapper" style={{"height": this.state.height}}>

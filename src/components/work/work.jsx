@@ -9,10 +9,10 @@ import Chip from "@material-ui/core/Chip";
 import "./work.css";
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles ({
+const useStyles = makeStyles({
   smallAvatar: {
-    width:50,
-    height:50,
+    width: 50,
+    height: 50,
     margin: 10
   }
 });
@@ -51,7 +51,6 @@ class WorkComponent extends Component {
     this.setState({ expanded3: !this.state.expanded3 });
   };
 
-
   render() {
     return (
       <div className="timeline">
@@ -76,7 +75,16 @@ class WorkComponent extends Component {
         </div>
         <div className="timeline-entry">
           <Card>
-            <CardHeader title="NMedia" subheader="Videographer & Editor" />
+            <CardHeader title="NMedia" subheader="Videographer & Editor">
+              <Avatar>NN</Avatar>
+            </CardHeader>
+          </Card>
+        </div>
+        <div className="timeline-entry">
+          <Card>
+            <CardHeader title="NMedia" subheader="Videographer & Editor">
+              <Avatar>NN</Avatar>
+            </CardHeader>
           </Card>
         </div>
       </div>
