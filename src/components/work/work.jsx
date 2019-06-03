@@ -7,20 +7,44 @@ import CardActions from "@material-ui/core/CardActions";
 import Avatar from "@material-ui/core/Avatar";
 import Chip from "@material-ui/core/Chip";
 import "./work.css";
-import { makeStyles } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import { red } from '@material-ui/core/colors';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import ShareIcon from '@material-ui/icons/Share';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import clsx from 'clsx';
 
-const useStyles = makeStyles({
-  smallAvatar: {
-    width: 50,
-    height: 50,
-    margin: 10
-  }
-});
+const useStyles = makeStyles(theme => ({
+  card: {
+    maxWidth: 345,
+  },
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
+  },
+  expand: {
+    transform: 'rotate(0deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)',
+  },
+  avatar: {
+    backgroundColor: red[500],
+  },
+}));
 
 class WorkComponent extends Component {
   constructor(props) {
     super(props);
-    this.setState = {
+    this.state = {
       expanded1: false,
       expanded2: false,
       expanded3: false
@@ -31,27 +55,12 @@ class WorkComponent extends Component {
     this.setState({ expanded1: expanded1 });
   };
 
-  handleExpandChange = expanded2 => {
-    this.setState({ expanded2: expanded2 });
-  };
-
-  handleExpandChange = expanded3 => {
-    this.setState({ expanded3: expanded3 });
-  };
-
   handleExpand1 = () => {
     this.setState({ expanded1: !this.state.expanded1 });
   };
 
-  handleExpand2 = () => {
-    this.setState({ expanded2: !this.state.expanded2 });
-  };
-
-  handleExpand3 = () => {
-    this.setState({ expanded3: !this.state.expanded3 });
-  };
-
   render() {
+    const { classes } = this.props;
     return (
       <div className="timeline">
         <p className="headline">Work History</p>
@@ -62,6 +71,16 @@ class WorkComponent extends Component {
               subheader="Software Engineer I & II"
               avatar={<Avatar src={require("./awis.jpeg")} />}
             />
+            <IconButton
+              className={clsx(classes.expand, {
+                [classes.expandOpen]: this.state.expanded1,
+              })}
+              onClick={this.handleExpand1}
+              aria-expanded={this.state.expanded1}
+              aria-label="Show more"
+            >
+              <ExpandMoreIcon />
+            </IconButton>
           </Card>
         </div>
         <div className="timeline-entry">
@@ -92,4 +111,4 @@ class WorkComponent extends Component {
   }
 }
 
-export default WorkComponent;
+export default withStyles(useStyles)(WorkComponent);
