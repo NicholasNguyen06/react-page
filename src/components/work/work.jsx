@@ -52,9 +52,7 @@ const useStyles = makeStyles(theme => ({
   avatar: {
     backgroundColor: red[500],
   },
-  nested: {
-    paddingLeft: theme.spacing(25),
-  },
+
 }));
 
 class WorkComponent extends Component {
@@ -64,8 +62,6 @@ class WorkComponent extends Component {
       expanded1: false,
       expanded2: false,
       expanded3: false,
-      open: false,
-      setOpen: false
     };
   }
 
@@ -73,9 +69,13 @@ class WorkComponent extends Component {
     this.setState({ expanded1: !this.state.expanded1 });
   };
 
-  handleClick = () => {
-    this.setState({ open: !this.state.open });
-  }
+  handleExpand2 = () => {
+    this.setState({ expanded2: !this.state.expanded2 });
+  };
+
+  handleExpand3 = () => {
+    this.setState({ expanded3: !this.state.expanded3 });
+  };
 
   render() {
     const { classes } = this.props;
@@ -155,7 +155,30 @@ class WorkComponent extends Component {
             </IconButton>
             <Collapse in={this.state.expanded2} timeout="auto" unmountOnExit>
               <CardContent>
-                
+              <Typography paragraph>
+                  <ul>
+                    <li>Implemented an orchestra of API integrations and connections know as, Built.IO Flow.</li>
+                    <li>Learned Node.JS and got hands on experience with MongoDB &amp; Redis</li>
+                    <li>Learned proper documentation skills, code review, &amp; ticket management.</li>
+                    <li>Contributed to building an onboarding process for alpha &amp; beta phases of the platform. The onboarding process was also used at tech conferences in San Francisco.</li>
+                  </ul><div className="timeline-entries">
+                    <div className="timeline-entry-chip">
+                      <Chip label="Javascript"></Chip>
+                    </div>
+                    <div className="timeline-entry-chip">
+                      <Chip label="NodeJS"></Chip>
+                    </div>
+                    <div className="timeline-entry-chip">
+                      <Chip label="Redis"></Chip>
+                    </div>
+                    <div className="timeline-entry-chip">
+                      <Chip label="MongoDB"></Chip>
+                    </div>
+                    <div className="timeline-entry-chip">
+                      <Chip label="Express"></Chip>
+                    </div>
+                  </div>
+                </Typography>
               </CardContent>
             </Collapse>
           </Card>
