@@ -17,6 +17,10 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import clsx from 'clsx';
+import Collapse from '@material-ui/core/Collapse';
+import ListItemText from '@material-ui/core/ListItemText';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -81,6 +85,17 @@ class WorkComponent extends Component {
             >
               <ExpandMoreIcon />
             </IconButton>
+            <Collapse in={this.state.expanded1} timeout="auto" unmountOnExit>
+              <CardContent>
+                <List>
+                  <ListItem alignItems="flex-start">
+                    <ListItemText primary="Lead ITD Developer">
+
+                    </ListItemText>
+                  </ListItem>
+                </List>
+              </CardContent>
+            </Collapse>
           </Card>
         </div>
         <div className="timeline-entry">
