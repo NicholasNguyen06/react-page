@@ -21,6 +21,15 @@ import Collapse from '@material-ui/core/Collapse';
 import ListItemText from '@material-ui/core/ListItemText';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import DraftsIcon from '@material-ui/icons/Drafts';
+import SendIcon from '@material-ui/icons/Send';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+import StarBorder from '@material-ui/icons/StarBorder';
+
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -43,6 +52,9 @@ const useStyles = makeStyles(theme => ({
   avatar: {
     backgroundColor: red[500],
   },
+  nested: {
+    paddingLeft: theme.spacing(25),
+  },
 }));
 
 class WorkComponent extends Component {
@@ -51,17 +63,19 @@ class WorkComponent extends Component {
     this.state = {
       expanded1: false,
       expanded2: false,
-      expanded3: false
+      expanded3: false,
+      open: false,
+      setOpen: false
     };
   }
-
-  handleExpandChange = expanded1 => {
-    this.setState({ expanded1: expanded1 });
-  };
 
   handleExpand1 = () => {
     this.setState({ expanded1: !this.state.expanded1 });
   };
+
+  handleClick = () => {
+    this.setState({ open: !this.state.open });
+  }
 
   render() {
     const { classes } = this.props;
@@ -72,7 +86,7 @@ class WorkComponent extends Component {
           <Card>
             <CardHeader
               title="Arrowhead Wholesale"
-              subheader="Software Engineer I & II"
+              subheader="Software Engineer I &amp; II &#x2015; November 2017 - Current "
               avatar={<Avatar src={require("./awis.jpeg")} />}
             />
             <IconButton
@@ -86,6 +100,84 @@ class WorkComponent extends Component {
               <ExpandMoreIcon />
             </IconButton>
             <Collapse in={this.state.expanded1} timeout="auto" unmountOnExit>
+              <CardContent>
+                <Typography paragraph>
+                  <ul>
+                    <li>Created a full insurance policy dashboard for commercial trucking policies that increased user processing accuracy and processing over 100%.</li>
+                    <li>Developed a small scale Customer Relation Management system for ITD Insurance Agency. The platform increased underwriting bindings by 35%. It allowed users to create suspense reports and follow ups. It allowed document store and generation of legal documents and contracts. It also
+                      tracked the entire process from a lead to insured.</li>
+                    <li>Created reports for both accounting and external carriers. These reports included a list of thousands of transactions for a given month, that were organized by dates, premiums, and insurance coverages.</li>
+                    <li>Managed Bug &amp; Feature requests using Trello Boards for the User & Engineer Team.</li>
+                  </ul><div className="timeline-entries">
+                    <div className="timeline-entry-chip">
+                      <Chip label="Java"></Chip>
+                    </div>
+                    <div className="timeline-entry-chip">
+                      <Chip label="Apache Ant &amp; Ivy"></Chip>
+                    </div>
+                    <div className="timeline-entry-chip">
+                      <Chip label="Apache Tomcat"></Chip>
+                    </div>
+                    <div className="timeline-entry-chip">
+                      <Chip label="Javascript"></Chip>
+                    </div>
+                    <div className="timeline-entry-chip">
+                      <Chip label="MySQL"></Chip>
+                    </div>
+                    <div className="timeline-entry-chip">
+                      <Chip label="SQL Server"></Chip>
+                    </div>
+                    <div className="timeline-entry-chip">
+                      <Chip label="Bootstrap"></Chip>
+                    </div>
+                  </div>
+                </Typography>
+              </CardContent>
+            </Collapse>
+          </Card>
+        </div>
+        <div className="timeline-entry">
+          <Card>
+            <CardHeader
+              title="Built.io"
+              subheader="Software Engineer Intern &#x2015; June 2015 - November 2016"
+              avatar={<Avatar src={require("./built.png")} />}
+            />
+            <IconButton
+              className={clsx(classes.expand, {
+                [classes.expandOpen]: this.state.expanded2,
+              })}
+              onClick={this.handleExpand2}
+              aria-expanded={this.state.expanded2}
+              aria-label="Show more"
+            >
+              <ExpandMoreIcon />
+            </IconButton>
+            <Collapse in={this.state.expanded2} timeout="auto" unmountOnExit>
+              <CardContent>
+                
+              </CardContent>
+            </Collapse>
+          </Card>
+        </div>
+        <div className="timeline-entry">
+          <Card>
+            <CardHeader
+              title="NMedia"
+              subheader="Videographer &amp; Editor"
+              avatar={<Avatar>NM</Avatar>}
+            />
+            <IconButton
+              className={clsx(classes.expand, {
+                [classes.expandOpen]: this.state.expanded2,
+              })}
+              onClick={this.handleExpand2}
+              aria-expanded={this.state.expanded2}
+              aria-label="Show more"
+            >
+              <ExpandMoreIcon />
+            </IconButton>
+            <Collapse in={this.state.expanded2} timeout="auto" unmountOnExit>
               <CardContent>
                 <List>
                   <ListItem alignItems="flex-start">
@@ -101,24 +193,31 @@ class WorkComponent extends Component {
         <div className="timeline-entry">
           <Card>
             <CardHeader
-              title="Built.IO"
-              subheader="Software Engineer Intern"
-              avatar={<Avatar src={require("./builtio.png")} />}
+              title="Sonoma State Univesity"
+              subheader="Bachelor of Computer Science &#x2015; August 2012 - May 2016"
+              avatar={<Avatar src={require("./ssu.jpeg")} />}
             />
-          </Card>
-        </div>
-        <div className="timeline-entry">
-          <Card>
-            <CardHeader title="NMedia" subheader="Videographer & Editor">
-              <Avatar>NN</Avatar>
-            </CardHeader>
-          </Card>
-        </div>
-        <div className="timeline-entry">
-          <Card>
-            <CardHeader title="NMedia" subheader="Videographer & Editor">
-              <Avatar>NN</Avatar>
-            </CardHeader>
+            <IconButton
+              className={clsx(classes.expand, {
+                [classes.expandOpen]: this.state.expanded2,
+              })}
+              onClick={this.handleExpand2}
+              aria-expanded={this.state.expanded2}
+              aria-label="Show more"
+            >
+              <ExpandMoreIcon />
+            </IconButton>
+            <Collapse in={this.state.expanded2} timeout="auto" unmountOnExit>
+              <CardContent>
+                <List>
+                  <ListItem alignItems="flex-start">
+                    <ListItemText primary="Lead ITD Developer">
+
+                    </ListItemText>
+                  </ListItem>
+                </List>
+              </CardContent>
+            </Collapse>
           </Card>
         </div>
       </div>
