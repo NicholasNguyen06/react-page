@@ -1,34 +1,17 @@
 import React, { Component } from "react";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
-import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
 import Avatar from "@material-ui/core/Avatar";
 import Chip from "@material-ui/core/Chip";
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import clsx from 'clsx';
+import Collapse from '@material-ui/core/Collapse';
 import "./work.css";
 import { withStyles } from "@material-ui/core/styles";
 import { makeStyles } from "@material-ui/core/styles";
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import clsx from 'clsx';
-import Collapse from '@material-ui/core/Collapse';
-import ListItemText from '@material-ui/core/ListItemText';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import SendIcon from '@material-ui/icons/Send';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-import StarBorder from '@material-ui/icons/StarBorder';
 
 
 const useStyles = makeStyles(theme => ({
@@ -49,10 +32,6 @@ const useStyles = makeStyles(theme => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
-  avatar: {
-    backgroundColor: red[500],
-  },
-
 }));
 
 class WorkComponent extends Component {
@@ -67,6 +46,7 @@ class WorkComponent extends Component {
 
   handleExpand1 = () => {
     this.setState({ expanded1: !this.state.expanded1 });
+    console.log(this.state.expanded1);
   };
 
   handleExpand2 = () => {
@@ -77,28 +57,35 @@ class WorkComponent extends Component {
     this.setState({ expanded3: !this.state.expanded3 });
   };
 
+  handleExpand4 = () => {
+    this.setState({ expanded4: !this.state.expanded4 });
+  };
+
+
   render() {
     const { classes } = this.props;
+    console.log(this.props);
     return (
       <div className="timeline">
         <p className="headline">Work History</p>
         <div className="timeline-entry">
-          <Card>
+          <Card className={classes.bg}>
             <CardHeader
               title="Arrowhead Wholesale"
               subheader="Software Engineer I &amp; II &#x2015; November 2017 - Current "
               avatar={<Avatar src={require("./awis.jpeg")} />}
+              action={<IconButton
+                className={clsx(classes.expand, {
+                  [classes.expandOpen]: this.state.expanded1,
+                })}
+                onClick={this.handleExpand1}
+                aria-expanded={this.state.expanded1}
+                aria-label="Show more"
+              >
+                <ExpandMoreIcon />
+              </IconButton>}
             />
-            <IconButton
-              className={clsx(classes.expand, {
-                [classes.expandOpen]: this.state.expanded1,
-              })}
-              onClick={this.handleExpand1}
-              aria-expanded={this.state.expanded1}
-              aria-label="Show more"
-            >
-              <ExpandMoreIcon />
-            </IconButton>
+
             <Collapse in={this.state.expanded1} timeout="auto" unmountOnExit>
               <CardContent>
                 <Typography paragraph>
@@ -142,20 +129,20 @@ class WorkComponent extends Component {
               title="Built.io"
               subheader="Software Engineer Intern &#x2015; June 2015 - November 2016"
               avatar={<Avatar src={require("./built.png")} />}
+              action={<IconButton
+                className={clsx(classes.expand, {
+                  [classes.expandOpen]: this.state.expanded2,
+                })}
+                onClick={this.handleExpand2}
+                aria-expanded={this.state.expanded2}
+                aria-label="Show more"
+              >
+                <ExpandMoreIcon />
+              </IconButton>}
             />
-            <IconButton
-              className={clsx(classes.expand, {
-                [classes.expandOpen]: this.state.expanded2,
-              })}
-              onClick={this.handleExpand2}
-              aria-expanded={this.state.expanded2}
-              aria-label="Show more"
-            >
-              <ExpandMoreIcon />
-            </IconButton>
             <Collapse in={this.state.expanded2} timeout="auto" unmountOnExit>
               <CardContent>
-              <Typography paragraph>
+                <Typography paragraph>
                   <ul>
                     <li>Implemented an orchestra of API integrations and connections know as, Built.IO Flow.</li>
                     <li>Learned Node.JS and got hands on experience with MongoDB &amp; Redis</li>
@@ -186,29 +173,46 @@ class WorkComponent extends Component {
         <div className="timeline-entry">
           <Card>
             <CardHeader
-              title="NMedia"
-              subheader="Videographer &amp; Editor"
+              title="EyeLick"
+              subheader="Videographer, Digital Marketer &amp; Editor"
               avatar={<Avatar>NM</Avatar>}
+              action={<IconButton
+                className={clsx(classes.expand, {
+                  [classes.expandOpen]: this.state.expanded3,
+                })}
+                onClick={this.handleExpand3}
+                aria-expanded={this.state.expanded3}
+                aria-label="Show more"
+              >
+                <ExpandMoreIcon />
+              </IconButton>}
             />
-            <IconButton
-              className={clsx(classes.expand, {
-                [classes.expandOpen]: this.state.expanded2,
-              })}
-              onClick={this.handleExpand2}
-              aria-expanded={this.state.expanded2}
-              aria-label="Show more"
-            >
-              <ExpandMoreIcon />
-            </IconButton>
-            <Collapse in={this.state.expanded2} timeout="auto" unmountOnExit>
+            <Collapse in={this.state.expanded3} timeout="auto" unmountOnExit>
               <CardContent>
-                <List>
-                  <ListItem alignItems="flex-start">
-                    <ListItemText primary="Lead ITD Developer">
-
-                    </ListItemText>
-                  </ListItem>
-                </List>
+                <Typography paragraph>
+                  <ul>
+                    <li>Created promotional videos for Insomniac Events & Business Coorporations.</li>
+                    <li>Created a digital marketing campaign and social media strategy for clients. Increased social media followers by up to 150% and revenue by up to 20%.</li>
+                    <li>Filmed and edited videos of international DJ's such as Ben Nicky, Eptic, and Darren Styles.</li>
+                  </ul>
+                  <div className="timeline-entries">
+                    <div className="timeline-entry-chip">
+                      <Chip label="Adobe Creative Suite"></Chip>
+                    </div>
+                    <div className="timeline-entry-chip">
+                      <Chip label="After Effects"></Chip>
+                    </div>
+                    <div className="timeline-entry-chip">
+                      <Chip label="Premiere Pro"></Chip>
+                    </div>
+                    <div className="timeline-entry-chip">
+                      <Chip label="Lightroom"></Chip>
+                    </div>
+                    <div className="timeline-entry-chip">
+                      <Chip label="Cinema 4D"></Chip>
+                    </div>
+                  </div>
+                </Typography>
               </CardContent>
             </Collapse>
           </Card>
@@ -216,29 +220,30 @@ class WorkComponent extends Component {
         <div className="timeline-entry">
           <Card>
             <CardHeader
-              title="Sonoma State Univesity"
+              title="Sonoma State University"
               subheader="Bachelor of Computer Science &#x2015; August 2012 - May 2016"
               avatar={<Avatar src={require("./ssu.jpeg")} />}
+              action={<IconButton
+                className={clsx(classes.expand, {
+                  [classes.expandOpen]: this.state.expanded4,
+                })}
+                onClick={this.handleExpand4}
+                aria-expanded={this.state.expanded4}
+                aria-label="Show more"
+              >
+                <ExpandMoreIcon />
+              </IconButton>}
             />
-            <IconButton
-              className={clsx(classes.expand, {
-                [classes.expandOpen]: this.state.expanded2,
-              })}
-              onClick={this.handleExpand2}
-              aria-expanded={this.state.expanded2}
-              aria-label="Show more"
-            >
-              <ExpandMoreIcon />
-            </IconButton>
-            <Collapse in={this.state.expanded2} timeout="auto" unmountOnExit>
+            <Collapse in={this.state.expanded4} timeout="auto" unmountOnExit>
               <CardContent>
-                <List>
-                  <ListItem alignItems="flex-start">
-                    <ListItemText primary="Lead ITD Developer">
-
-                    </ListItemText>
-                  </ListItem>
-                </List>
+                <Typography paragraph>
+                  <ul>
+                    <li> 3.6 GPA </li>
+                    <li> Member of SSU Computer Science Club</li>
+                    <li> Member &amp; Executive Leader of Phi Delta Theta Cal Sigma </li>
+                    <li> Captain of SSU Mens Divison II Volleyball Team (Ranked 2nd nationally)</li>
+                  </ul>
+                </Typography>
               </CardContent>
             </Collapse>
           </Card>
