@@ -46,7 +46,6 @@ class WorkComponent extends Component {
 
   handleExpand1 = () => {
     this.setState({ expanded1: !this.state.expanded1 });
-    console.log(this.state.expanded1);
   };
 
   handleExpand2 = () => {
@@ -95,7 +94,8 @@ class WorkComponent extends Component {
                       tracked the entire process from a lead to insured.</li>
                     <li>Created reports for both accounting and external carriers. These reports included a list of thousands of transactions for a given month, that were organized by dates, premiums, and insurance coverages.</li>
                     <li>Managed Bug &amp; Feature requests using Trello Boards for the User & Engineer Team.</li>
-                  </ul><div className="timeline-entries">
+                  </ul>
+                  <div className="timeline-entries">
                     <div className="timeline-entry-chip">
                       <Chip label="Java"></Chip>
                     </div>

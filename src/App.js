@@ -13,7 +13,7 @@ function App() {
         </div>
       </div>
       <div className="section">
-        <div className="section-container">
+        <div className="section-container-lg">
           <AboutComponent></AboutComponent>
         </div>
       </div>
