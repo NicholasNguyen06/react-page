@@ -1,3 +1,7 @@
+.about-wrapper {
+    padding-top: 70px;
+}
+
 .programming {
     display: inline-block;
     width: 100%;
@@ -42,11 +46,8 @@
 }
 
 ul {
-    list-style: none;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    line-height: 2;
+    font-size: 14px;
 }
 
 .no-top-padding {
@@ -65,10 +66,18 @@ ul {
 }
 
 .about-spacing {
-    line-height: 1.3;
-    font-size: 18px;
+    line-height: 2;
+    font-size: 14px;
 }
 
-.arrow-teal {
+.teal {
     color: #41B3A3;
+}
+
+.tan {
+    color: #E8A87C;
+}
+
+.align-left {
+    align: left;
 }

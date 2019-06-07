@@ -7,6 +7,8 @@ import Chip from "@material-ui/core/Chip";
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+
 import clsx from 'clsx';
 import Collapse from '@material-ui/core/Collapse';
 import "./work.css";
@@ -71,17 +73,14 @@ class WorkComponent extends Component {
           <Card className={classes.bg}>
             <CardHeader
               title="Arrowhead Wholesale"
-              subheader="Software Engineer I &amp; II &#x2015; November 2017 - Current "
+              subheader="Software Engineer I &amp; II &#x2015; November 2016 - Current "
               avatar={<Avatar src={require("./awis.jpeg")} />}
               action={<IconButton
-                className={clsx(classes.expand, {
-                  [classes.expandOpen]: this.state.expanded1,
-                })}
                 onClick={this.handleExpand1}
                 aria-expanded={this.state.expanded1}
                 aria-label="Show more"
               >
-                <ExpandMoreIcon />
+                {this.state.expanded1 ? <ExpandLessIcon /> : <ExpandMoreIcon /> }
               </IconButton>}
             />
 
@@ -93,7 +92,7 @@ class WorkComponent extends Component {
                     <li>Developed a small scale Customer Relation Management system for ITD Insurance Agency. The platform increased underwriting bindings by 35%. It allowed users to create suspense reports and follow ups. It allowed document store and generation of legal documents and contracts. It also
                       tracked the entire process from a lead to insured.</li>
                     <li>Created reports for both accounting and external carriers. These reports included a list of thousands of transactions for a given month, that were organized by dates, premiums, and insurance coverages.</li>
-                    <li>Managed Bug &amp; Feature requests using Trello Boards for the User & Engineer Team.</li>
+                    <li>Managed Bug &amp; Feature requests using Trello Boards for the User &amp; Engineer Team.</li>
                   </ul>
                   <div className="timeline-entries">
                     <div className="timeline-entry-chip">
@@ -127,17 +126,14 @@ class WorkComponent extends Component {
           <Card>
             <CardHeader
               title="Built.io"
-              subheader="Software Engineer Intern &#x2015; June 2015 - November 2016"
+              subheader="Software Engineer Intern &#x2015; June 2015 - November 2015"
               avatar={<Avatar src={require("./built.png")} />}
               action={<IconButton
-                className={clsx(classes.expand, {
-                  [classes.expandOpen]: this.state.expanded2,
-                })}
                 onClick={this.handleExpand2}
                 aria-expanded={this.state.expanded2}
                 aria-label="Show more"
               >
-                <ExpandMoreIcon />
+                {this.state.expanded2 ? <ExpandLessIcon /> : <ExpandMoreIcon /> }
               </IconButton>}
             />
             <Collapse in={this.state.expanded2} timeout="auto" unmountOnExit>
@@ -177,14 +173,11 @@ class WorkComponent extends Component {
               subheader="Videographer, Digital Marketer &amp; Editor"
               avatar={<Avatar>NM</Avatar>}
               action={<IconButton
-                className={clsx(classes.expand, {
-                  [classes.expandOpen]: this.state.expanded3,
-                })}
                 onClick={this.handleExpand3}
                 aria-expanded={this.state.expanded3}
                 aria-label="Show more"
               >
-                <ExpandMoreIcon />
+                {this.state.expanded3 ? <ExpandLessIcon /> : <ExpandMoreIcon /> }
               </IconButton>}
             />
             <Collapse in={this.state.expanded3} timeout="auto" unmountOnExit>
@@ -224,14 +217,11 @@ class WorkComponent extends Component {
               subheader="Bachelor of Computer Science &#x2015; August 2012 - May 2016"
               avatar={<Avatar src={require("./ssu.jpeg")} />}
               action={<IconButton
-                className={clsx(classes.expand, {
-                  [classes.expandOpen]: this.state.expanded4,
-                })}
                 onClick={this.handleExpand4}
                 aria-expanded={this.state.expanded4}
                 aria-label="Show more"
               >
-                <ExpandMoreIcon />
+                {this.state.expanded4 ? <ExpandLessIcon /> : <ExpandMoreIcon /> }
               </IconButton>}
             />
             <Collapse in={this.state.expanded4} timeout="auto" unmountOnExit>
